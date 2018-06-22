@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { firstStep, secondStep } from './configs'
+import { firstStep, secondStep, FifthStep } from './configs'
 import PropTypes from 'prop-types';
 const FirstType = (props) => {
 	FirstType.propTypes = {
@@ -16,7 +16,7 @@ const FirstType = (props) => {
 		<div className={'information'}>
 			<div className={'info-block'}>
 				<div className={'img'}/>
-				<p>+45 71 74 93 62</p>
+				<p className={'information-text'}>+45 71 74 93 62</p>
 			</div>
 			<div className={'info-block'}>
 				<div className={'img'} />
@@ -29,33 +29,20 @@ const SecondType = (props) => {
 	SecondType.propTypes = {
 		data: PropTypes.object
 	};
+	console.log('props',props);
 
-	return (<aside>
-		<div className={'aside-block'}>
+	const result = props.data.map((item) => {
+		return (
+		<div key={item.header} className={'aside-block'}>
 			<div className={'img'}></div>
-			<h1>100%gratis</h1>
-			<p>Opstart: 0,00 DKK 
-				Samlet pris for kampagnen: 0,00 DKK
-			</p>
-		</div>
-		<div className={'aside-block'}>
-			<div className={'img'}></div>
-			<h1>gratis</h1>
-			<p>Opstart: 0,00 DKK 
-				Samlet pris for kampagnen: 0,00 DKK
-			</p>
-		</div>
-		<div className={'aside-block'}>
-			<div className={'img'}></div>
-			<h1>gratis</h1>
-			<p>Opstart: 0,00 DKK 
-				Samlet pris for kampagnen: 0,00 DKK
-			</p>
-		</div>
-		
-	</aside>)
+			<h1>{item.header}</h1>
+			<p>{item.text}</p>
+		</div>);
+	});
+
+	return (<aside>{result}</aside>);
 };
-export const Aside = (props) => {
+const Aside = (props) => {
 	Aside.propTypes = {
 		stepNumber: PropTypes.number
 	};
@@ -68,7 +55,7 @@ export const Aside = (props) => {
 			break;
 		case 5:
 			Component = SecondType;
-			data = secondStep;
+			data = FifthStep;
 			break;
 	}
 
@@ -78,5 +65,6 @@ export const Aside = (props) => {
 	);
 
 };
+export default Aside;
 
 

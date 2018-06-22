@@ -206,7 +206,7 @@ body {
         width: 120px;
         color: #666ee8;
         margin: auto; }
-        .flow .main-part aside .info-block p {
+        .flow .main-part aside .info-block .information-text {
           margin: 0; }
         .flow .main-part aside .info-block .img {
           position: absolute;
@@ -217,8 +217,16 @@ body {
           border-radius: 100%; }
       .flow .main-part aside .aside-block {
         height: 33%;
-        border-bottom: 1px solid #e4e5ec; }
-        .flow .main-part aside .aside-block h1 {
-          color: #666ee8; }
+        border-top: 1px solid #e4e5ec; }
         .flow .main-part aside .aside-block:first-child {
-          border-bottom: none; }
+          border-top: none; }
+        .flow .main-part aside .aside-block h1 {
+          color: #666ee8;
+          height: auto; }
+        .flow .main-part aside .aside-block .img {
+          width: 16px;
+          height: 16px;
+          background-color: #666ee8;
+          border-radius: 100%;
+          margin: auto;
+          margin-top: 30px; }

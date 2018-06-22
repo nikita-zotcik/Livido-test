@@ -1,10 +1,10 @@
 import React, {Component} from "react";
 import { Stepper } from './stepper/stepper';
-import { Aside } from './aside/aside';
+import  Aside  from './aside/aside';
 
 class Flow extends Component {
 	state = {
-		stepNumber: 1,
+		stepNumber: 5,
 		steps: ['Opret konto', 'Tilknyt regnskabssystem', 'Design kampagne', 'Vælg sager', 'Bekræft kampagne' ]
 	};
 
@@ -12,7 +12,6 @@ class Flow extends Component {
 		let stepNumber = this.state.stepNumber;
 		if (stepNumber === 6) return;
 		stepNumber+= 0.5;
-		console.log('stepNumber',stepNumber);
 		this.setState({stepNumber});
 	}
 
