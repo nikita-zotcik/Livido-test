@@ -1,0 +1,123 @@
+%button-default {
+  cursor: pointer;
+  width: 160px;
+  height: 60px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
+  outline: none;
+  border: none;
+}
+
+.main {
+  .button {
+    @extend %button-default;
+    &:active {
+        box-shadow: 0 0 #666;
+    }
+  }
+  .right-panel-button {
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+    width: 225px;
+    height: 58px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0);
+    border: solid 1px #e4e5ec;
+    outline: none;
+    &:active {
+      box-shadow: inset 1px 1px 8px #666;
+    }
+  }
+
+  .search-container {
+    display: flex;
+    height: 58px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.39);
+    background-color: #ffffff;
+    border: solid 1px rgba(102, 110, 232, 0.25);
+    align-items: center;
+    position: relative;
+    padding-right: 160px;
+
+    .button {
+      position: absolute;
+      right: 0;
+    }
+
+    .icon-home {
+      width: 14px;
+      height: 9.4px;
+      margin-left: 15px;
+    }
+
+    .search-value {
+      width: 100%;
+      border: none;
+      height: 24px;
+      font-size: 16px;
+      color: #464855;
+      outline: none;
+    }
+
+    .search-container-block {
+      width: 100%;
+      height: 254px;
+      top: 61px;
+      border-radius: 4px;
+      box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.03);
+      background-color: #ffffff;
+      border: solid 1px #e4e5ec;
+      overflow-x: hidden;
+      overflow-y: auto;
+      position: absolute;
+      display: none;
+
+      .search-container-block-item {
+        height: 56px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: solid 1px #e4e5ec;
+        padding: 0 15px;
+        cursor: pointer;
+
+        .search-container-block-label-main {
+          color: #c0c4d1;
+        }
+
+        .search-container-block-label {
+          color: #464855;
+          max-width: 140px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .search-container-block-cvr-main {
+          color: #c0c4d1;
+        }
+
+        .search-container-block-cvr {
+          color: #898ea2;
+          max-width: 140px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .search-container-block-arrow {
+          color: #ff6b36;
+        }
+      }
+    }
+
+  }
+
+}

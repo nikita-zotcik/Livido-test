@@ -1,0 +1,31 @@
+.right-panel {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 10rem;
+  align-items: center;
+  padding: 10px 15px;
+  flex-grow: 1;
+  justify-content: space-around;
+
+  .container-number {
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right-panel-user-info {
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+    color: #6b6f81;
+    padding-bottom: 5px;
+  }
+
+  .right-panel-header {
+    font-size: 21px;
+    text-align: center;
+    color: #464855;
+    padding-bottom: 25px;
+  }
+}

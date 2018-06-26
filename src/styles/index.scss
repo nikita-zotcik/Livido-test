@@ -1,0 +1,99 @@
+
+%bg-image {
+  width: 100%;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+body {
+  font-family: 'Montserrat';
+  margin: 0;
+  padding: 0;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: normal;
+
+  .compan-block {
+    display: flex;
+    justify-content: space-between;
+
+    .login {
+      .login-url {
+        color: #ff6b36
+      }
+    }
+
+    div {
+      padding: 10px;
+
+    }
+  }
+
+  .show {
+    display: block !important;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+
+    .menu, .container-main {
+      max-width: 1200px;
+    }
+
+    .container-main {
+      display: flex;
+      justify-content: center;
+      .containers {
+        background-color: #ffffff;
+        box-shadow: 0 10px 14px 0 rgba(69, 73, 91, 0.08);
+        min-height: 620px;
+      }
+    }
+
+    /* Menu panel components styles - Structure and layout files.
+    ========================================================================== */
+    @import "components/menu.scss"; /* Left panel components styles - Structure and layout files.
+    ========================================================================== */
+    @import "components/left-panel.scss"; /* Right panel components styles - Structure and layout files.
+    ========================================================================== */
+    @import "components/right-panel.scss";
+
+    .img {
+      width: 118px;
+      height: 118px;
+      border-radius: 100px;
+      margin-top: 60px;
+      margin-bottom: 10px;
+    }
+
+    .rocket-icon {
+      @extend %bg-image;
+      background-image: url("/icons/svg-rocket-icon-2.svg");
+    }
+
+    .divider {
+      height: 35px;
+      width: 1px;
+      background-color: #464855;
+      margin: 0 7px;
+    }
+
+    .divider-line {
+      border: solid 1px #464855;
+      margin-top: 50px;
+      margin-bottom: 20px;
+    }
+
+  }
+
+}
+
+/* Simple components styles - Structure and layout files.
+========================================================================== */
+
+@import "components/smpl-components.scss";
+@import "components/smpl-input.scss";
