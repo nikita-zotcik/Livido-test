@@ -18,9 +18,9 @@ export default class Design extends React.Component {
         const { activeStep } = this.state;
         switch (activeStep) {
             case 'software step':
-                return <Software changeStep={this.changeStep} data={data.data_software}/>
+                return <Software changeStep={this.changeStep} data={data.data_software} />
             case 'details step':
-                return <Integration changeStep={this.changeStep} data={data.data_integration}/>
+                return <Integration changeStep={this.changeStep} data={data.data_integration} />
             case 'account step':
             // return <Account changeStep={this.changeStep} />
             case 'greeting step':
@@ -28,21 +28,17 @@ export default class Design extends React.Component {
         }
     }
 
-    changeStep() {
+    changeStep(backStep) {
         const { activeStep } = this.state;
 
         this.steps.filter((el, key) => {
             if (activeStep === el) {
                 this.changeStatus('Tilknyt regnskabssystem', 'progress');
-                this.setState({ activeStep: this.steps[key + 1] });
+                this.setState({ activeStep: this.steps[backStep ? key + 1 : key - 1] });
             }
         })
     }
     render() {
-        return (
-            <div>
-                {this.renderStep()}
-            </div>
-        )
+        return (this.renderStep())
     }
 }

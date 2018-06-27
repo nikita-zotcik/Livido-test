@@ -17,16 +17,18 @@ body {
   .compan-block {
     display: flex;
     justify-content: space-between;
+    padding: 20px;
+
+    .compan-logo {
+      color: #353745;
+      font-size: 21px;
+      font-weight: bold;
+    }
 
     .login {
       .login-url {
         color: #ff6b36
       }
-    }
-
-    div {
-      padding: 10px;
-
     }
   }
 
@@ -96,4 +98,3 @@ body {
 ========================================================================== */
 
 @import "components/smpl-components.scss";
-@import "components/smpl-input.scss";

@@ -38,16 +38,11 @@ export default class Design extends React.Component {
         this.steps.filter((el, key) => {
             if (activeStep === el) {
                 this.changeStatus('Opret konto','progress');
-                
                 this.setState({ activeStep: this.steps[backStep ? key + 1 : key-1] });
             }
         })
     }
     render() {
-        return (
-            <div>
-                {this.renderStep()}
-            </div>
-        )
+        return (this.renderStep())
     }
 }

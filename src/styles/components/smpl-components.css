@@ -1,0 +1,154 @@
+.main .button {
+  cursor: pointer;
+  width: 160px;
+  height: 60px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
+  outline: none;
+  border: none; }
+
+.main .button:active {
+  box-shadow: 0 0 #666; }
+
+.main .button-back {
+  background-color: white;
+  box-shadow: none !important;
+  color: #666ee8; }
+
+.main .right-panel-button {
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+  width: 225px;
+  height: 58px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0);
+  border: solid 1px #e4e5ec;
+  outline: none; }
+  .main .right-panel-button:active {
+    box-shadow: inset 1px 1px 8px #666; }
+
+.main .search-container {
+  display: flex;
+  height: 58px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.39);
+  background-color: #ffffff;
+  border: solid 1px rgba(102, 110, 232, 0.25);
+  align-items: center;
+  position: relative;
+  padding-right: 160px; }
+  .main .search-container .button {
+    position: absolute;
+    right: 0; }
+  .main .search-container .icon-home {
+    width: 15px;
+    margin-left: 15px; }
+  .main .search-container .search-value {
+    width: 100%;
+    border: none;
+    height: 24px;
+    font-size: 16px;
+    color: #464855;
+    outline: none; }
+  .main .search-container .search-container-block {
+    width: 100%;
+    max-height: 254px;
+    top: 61px;
+    border-radius: 4px;
+    box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.03);
+    background-color: #ffffff;
+    border: solid 1px #e4e5ec;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    display: none; }
+    .main .search-container .search-container-block .search-container-block-item {
+      height: 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: solid 1px #e4e5ec;
+      padding: 0 15px;
+      cursor: pointer; }
+      .main .search-container .search-container-block .search-container-block-item .search-container-block-label-main {
+        color: #c0c4d1; }
+      .main .search-container .search-container-block .search-container-block-item .search-container-block-label {
+        color: #464855;
+        max-width: 140px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; }
+      .main .search-container .search-container-block .search-container-block-item .search-container-block-cvr-main {
+        color: #c0c4d1; }
+      .main .search-container .search-container-block .search-container-block-item .search-container-block-cvr {
+        color: #898ea2;
+        max-width: 140px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; }
+      .main .search-container .search-container-block .search-container-block-item .search-container-block-arrow {
+        color: #ff6b36; }
+
+.main .container-inp {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px; }
+  .main .container-inp .input-block {
+    width: 100%; }
+    .main .container-inp .input-block div {
+      margin-right: 30px; }
+      .main .container-inp .input-block div .input-value {
+        width: 100%;
+        border-radius: 4px;
+        box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+        background-color: rgba(102, 110, 232, 0.08);
+        border: solid 1px rgba(45, 45, 80, 0.3);
+        height: 48px;
+        font-size: 18px;
+        color: #464855;
+        outline: none;
+        padding: 0px 10px; }
+      .main .container-inp .input-block div .input-value:focus {
+        border: solid 1px #666ee8;
+        background-color: #e7e9fd; }
+    .main .container-inp .input-block .input-title {
+      padding-bottom: 5px;
+      color: #a7abbd;
+      font-size: 14px; }
+
+.main .status {
+  display: flex;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  margin: auto;
+  left: 30px;
+  top: 12px;
+  border-radius: 100%;
+  border: solid 0.5px rgba(102, 110, 232, 0.5); }
+  .main .status .success {
+    display: inline-block;
+    margin: auto; }
+    .main .status .success:after {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 10px;
+      border: solid #28d094;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg); }
+  .main .status .progress {
+    width: 12px;
+    height: 12px;
+    border-radius: 120px;
+    background-color: #666ee8;
+    margin: auto; }
+
+.main .show {
+  display: block !important; }

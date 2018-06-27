@@ -1,12 +1,11 @@
 import React from 'react';
 
 const Input = ({ inputs = [], onChange = () => { }, styles = {} }) => {
-    console.log(inputs)
     return (
         <div className="container-inp">
             {inputs.map((el, index) => {
                 return <div className="input-block" key={index}>
-                    <div className="input title">
+                    <div className="input-title">
                         {el}
                     </div>
                     <div>
@@ -17,6 +16,5 @@ const Input = ({ inputs = [], onChange = () => { }, styles = {} }) => {
         </div>
     )
 };
-
 
 export default Input;

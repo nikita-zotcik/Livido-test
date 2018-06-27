@@ -2,7 +2,6 @@ import React from 'react'
 import { Button, Input } from '../../../../smpl-components/index'
 import defaultProps from '../../../../default'
 
-console.log('Buttons', Button)
 export default class Account extends React.Component {
 
     render() {
@@ -11,13 +10,14 @@ export default class Account extends React.Component {
         const { btnPrimaryColor } = defaultProps.btnStyles;
 
         return (
-            <div className="container">
+            <div className="left-panel-block">
                 <div className="left-panel-container-header">
                     {content.container_header}
                 </div>
-                <div className="left-panel-container-header-content">
+                <div className="left-panel-container-text left-panel-container-content">
                     {content.header_content}
                 </div>
+
                 <Input inputs={['FORNAVN', 'EFTERNAVN']} />
                 <Input inputs={['Arbejdsmail', 'Mobilnummer på kontaktperson']} />
                 <Input inputs={['VÆLG PASSWORD (min 8 karakterer)', 'GENTAG PASSWORD']} />
@@ -28,7 +28,7 @@ export default class Account extends React.Component {
                 </div>
                 <div className="container-button">
                     <Button onChange={changeStep} title={'Næste →'} styles={{ backgroundColor: btnPrimaryColor }} />
-                    <span type="button" className="Forrige" value="Forrige" onClick={() => changeStep(false)}>Forrige</span>
+                    <Button onChange={() => changeStep(false)} title={'Forrige'} className={'button button-back'} />
                 </div>
             </div>
         )
