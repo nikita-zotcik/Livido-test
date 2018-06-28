@@ -56,7 +56,7 @@ export default class TopPanel extends React.Component {
                         </div>
                         {data.map((el, index) => {
                             return <div className="search-container-block-item" key={index}
-                                onClick={() => this.setState({ searchValue: el.registrationName, showItem: !showItem })} >
+                                onClick={changeStep} >
                                 <span className="search-container-block-label">{el.label}</span>
                                 <span className="search-container-block-cvr">{el.registrationName}</span>
                                 <span className="search-container-block-arrow">→</span>

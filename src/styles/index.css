@@ -85,8 +85,9 @@ body {
         body .main .menu .wrapper .name p {
           color: #2d2d50;
           text-align: center;
-          padding-left: 65px;
-          font-size: 12px; }
+          padding-left: 25px;
+          font-size: 12px;
+          white-space: nowrap; }
     body .main .left-panel .left-panel-container-text {
       font-size: 15px;
       font-weight: 300;
@@ -157,9 +158,6 @@ body {
               font-size: 11px; }
           body .main .left-panel .left-panel-block .container-accounting-program .active {
             border: solid 2px #666ee8; }
-        body .main .left-panel .left-panel-block .container-checkbox {
-          padding-top: 10px;
-          color: #6b6f81; }
       body .main .left-panel .greeting {
         align-items: center; }
       body .main .left-panel .left-panel-payment-info {
@@ -330,7 +328,8 @@ body {
 .main .container-inp {
   display: flex;
   justify-content: space-between;
-  margin-top: 15px; }
+  margin-top: 15px;
+  margin-bottom: 10px; }
   .main .container-inp .input-block {
     width: 100%; }
     .main .container-inp .input-block div {
@@ -381,6 +380,54 @@ body {
     border-radius: 120px;
     background-color: #666ee8;
     margin: auto; }
+
+.main .container-custom-checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  color: #6b6f81; }
+  .main .container-custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    left: 2px; }
+  .main .container-custom-checkbox .custom-checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.03);
+    background-color: #ffffff;
+    background-color: var(--white);
+    border: solid 1px #e7e9f0; }
+  .main .container-custom-checkbox .custom-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none; }
+  .main .container-custom-checkbox input:checked ~ .custom-checkmark:after {
+    display: block; }
+  .main .container-custom-checkbox .custom-checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid #666ee8;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg); }
+
+.main .container-checkbox {
+  padding-top: 30px;
+  color: #6b6f81;
+  display: flex;
+  justify-content: start;
+  align-items: center; }
+  .main .container-checkbox .container-checkbox-value {
+    padding-top: 5px; }
 
 .main .show {
   display: block !important; }
