@@ -5,7 +5,7 @@
   font-stretch: normal;
   line-height: 1.64;
   letter-spacing: normal;
-  color: #898ea2;
+  color: #6b6f81;
 }
 
 .left-panel {
@@ -25,14 +25,15 @@
 
     .panel-bl-content {
       display: inline-block;
-      margin: 30px 0 20px 0;
+      margin: 10px 0 30px 0;
       color: #666ee8;
+
+      font-size: 14px;
     }
 
     .left-panel-container-body {
       display: flex;
       justify-content: start;
-      padding-top: 50px;
       padding-bottom: 50px;
 
       .left-panel-container-body-content {
@@ -50,7 +51,6 @@
           font-size: 21px;
           color: #464855;
           padding-top: 0px;
-          padding-bottom: 10px
         }
 
         .left-panel-container-body-content-footer {
@@ -124,7 +124,7 @@
 
   .left-panel-container-header {
     font-size: 28px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.52;
     letter-spacing: normal;
     color: #464855;

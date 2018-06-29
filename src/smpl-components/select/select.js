@@ -63,7 +63,7 @@ export default class TopPanel extends React.Component {
                             </div>
                         })}
                         <div className="search-container-block-item" >
-                            <span className="search-value" onClick={() => this.setState({ openInput: !openInput })} style={{ color: btnPrimaryColor }}>Opret manuelt, klik her</span>
+                            <span className="search-value" onClick={changeStep} style={{ color: btnPrimaryColor }}>Opret manuelt, klik her</span>
                         </div>
                     </div>
                 </div>

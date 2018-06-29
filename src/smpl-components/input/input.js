@@ -43,11 +43,10 @@ export default class Input extends React.Component {
                 <div className="input-title">
                     {title}
                 </div>
-
                 <div>
-                    <input type={type} name={title} className="input-value" onChange={this.validation} />
+                    <input type={type} name={title} className={`input-value ${errorShow ? 'error' : ''}`} onChange={this.validation} />
                 </div>
-                <span className={errorShow ? 'show' : ''} style={{ color: 'red', display: 'none' }}> {errorMes}</span>
+                <span className={`error-message ${errorShow ? 'show' : ''}`}> {errorMes}</span>
             </div>
         )
     }

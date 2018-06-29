@@ -17,7 +17,7 @@ export default class Greeting extends React.Component {
                     {content.header_content}
                 </div>
                 <img className="Fill-1" src={content.img} />
-                <Button onChange={changeStep} title={'Næste →'} styles={{ backgroundColor: btnPrimaryColor }} />
+                <Button onChange={changeStep} title={'Tilknyt regnskabsprogram'} styles={{ backgroundColor: btnPrimaryColor, width: 235 }} />
             </div>
         )
     }

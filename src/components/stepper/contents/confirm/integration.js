@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Input } from '../../../../smpl-components/index'
 import defaultProps from '../../../../default'
+import Validation from '../../../validation'
 
 export default class Integration extends React.Component {
     constructor(props) {
@@ -22,15 +23,19 @@ export default class Integration extends React.Component {
                     <div className="left-panel-container-header">
                         Opsæt Dinero integrationen
                     </div>
-                    <div className="left-panel-container-header-content">
+                    <div className="left-panel-container-header-content left-panel-container-text left-panel-container-content">
                         Du skal have en Dineo Pro account for at kunne opsætte integrationen.
-                        Se nedenstående video guide, ring til vores hotline på 71 74 93 62 eller få os til at opsætte
-                        integrationen
+                        Se nedenstående video guide, ring til vores hotline <u className="panel-bl-content">på 71 74 93 62 eller få os til at opsætte
+                        integrationen </u>
                     </div>
                     <div className="left-panel-container-body">
                         <div>
-                            <Input inputs={['Din dinero API nøgle']} />
-                            <Input inputs={['Dit Dinero firma ID']} />
+                            <div className="container-inp">
+                                <Input title={'Din dinero API nøgle'} errorMes={'API er forkert'} error={(el) => { return Validation.validationEmail(el) }} onChange={(name, value) => { this.selectData(name, value) }} />
+                            </div>
+                            <div className="container-inp">
+                                <Input title={'Dit Dinero firma ID'} errorMes={'ID er forkert'} error={(el) => { return Validation.validationEmail(el) }} onChange={(name, value) => { this.selectData(name, value) }} />
+                            </div>
                         </div>
                         <div className="left-panel-container-body-content">
                             <span className="left-panel-container-body-content-title">Sådan gør du:</span>
@@ -43,7 +48,7 @@ export default class Integration extends React.Component {
                         </div>
                     </div>
                     <div className="container-button">
-                        <Button title={'Opsæt nteraton →'} styles={{ backgroundColor: btnPrimaryColor }} />
+                        <Button title={'Opsæt integration  →'} styles={{ backgroundColor: btnPrimaryColor }} />
                         <Button onChange={() => changeStep(false)} title={'Afbryd'} className={'button button-back'} />
                     </div>
                 </div>

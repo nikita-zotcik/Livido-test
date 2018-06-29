@@ -5,7 +5,7 @@
   font-stretch: normal;
   line-height: 1.64;
   letter-spacing: normal;
-  color: #898ea2; }
+  color: #6b6f81; }
 
 .left-panel {
   flex: 5 0 10rem; }
@@ -20,12 +20,12 @@
       padding-top: 15px; }
     .left-panel .left-panel-block .panel-bl-content {
       display: inline-block;
-      margin: 30px 0 20px 0;
-      color: #666ee8; }
+      margin: 10px 0 30px 0;
+      color: #666ee8;
+      font-size: 14px; }
     .left-panel .left-panel-block .left-panel-container-body {
       display: flex;
       justify-content: start;
-      padding-top: 50px;
       padding-bottom: 50px; }
       .left-panel .left-panel-block .left-panel-container-body .left-panel-container-body-content {
         display: flex;
@@ -38,8 +38,7 @@
         .left-panel .left-panel-block .left-panel-container-body .left-panel-container-body-content .left-panel-container-body-content-title {
           font-size: 21px;
           color: #464855;
-          padding-top: 0px;
-          padding-bottom: 10px; }
+          padding-top: 0px; }
         .left-panel .left-panel-block .left-panel-container-body .left-panel-container-body-content .left-panel-container-body-content-footer {
           padding-top: 30px; }
           .left-panel .left-panel-block .left-panel-container-body .left-panel-container-body-content .left-panel-container-body-content-footer u {
@@ -69,9 +68,6 @@
           font-size: 11px; }
       .left-panel .left-panel-block .container-accounting-program .active {
         border: solid 2px #666ee8; }
-    .left-panel .left-panel-block .container-checkbox {
-      padding-top: 10px;
-      color: #6b6f81; }
   .left-panel .greeting {
     align-items: center; }
   .left-panel .left-panel-payment-info {
@@ -86,7 +82,7 @@
         height: 50px; }
   .left-panel .left-panel-container-header {
     font-size: 28px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.52;
     letter-spacing: normal;
     color: #464855; }

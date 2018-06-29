@@ -9,9 +9,15 @@
   justify-content: space-around;
 
   .container-number {
-    padding-top: 25px;
     display: flex;
     flex-direction: column;
+
+    .panel-bl-content {
+      padding-top: 5px;
+      color: #666ee8;
+      font-weight: 500;
+      font-size: 14px;
+    }
   }
 
   .right-panel-user-info {
@@ -26,6 +32,10 @@
     font-size: 21px;
     text-align: center;
     color: #464855;
-    padding-bottom: 25px;
+    font-weight: 500;
+  }
+
+  .right-panel-button {
+      color: #666ee8;
   }
 }

@@ -20,7 +20,6 @@ export default class Details extends React.Component {
         let stop = true;
         data.forEach((el, index) => {
             if (el.name === name) {
-                console.log('333333333')
                 data[index].value = value;
                 stop = false;
                 this.setState(data);

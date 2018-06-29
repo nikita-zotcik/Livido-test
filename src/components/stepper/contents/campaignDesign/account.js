@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Input, Checkbox } from '../../../../smpl-components/index'
+import { Button, Input, Checkbox,Modal } from '../../../../smpl-components/index'
 import defaultProps from '../../../../default'
 import Validation from '../../../validation'
 
@@ -58,6 +58,7 @@ export default class Account extends React.Component {
         console.log('sdfsdf', this.state.data);
         return (
             <div className="left-panel-block">
+            {/* <Modal/> */}
                 <div className="left-panel-container-header">
                     {content.container_header}
                 </div>
