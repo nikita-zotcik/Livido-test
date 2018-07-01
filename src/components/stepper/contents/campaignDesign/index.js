@@ -18,12 +18,14 @@ export default class Design extends React.Component {
     }
 
     renderStep() {
+        const {value} = this.state;
+        console.log('value',value)
         const { activeStep } = this.state;
         switch (activeStep) {
             case 'payment step':
                 return <Payment changeStep={this.changeStep} data={data.data_payment} />
             case 'details step':
-                return <Details changeStep={this.changeStep} data={data.data_details}/>;
+                return <Details changeStep={this.changeStep} data={data.data_details} value={value}/>;
             case 'account step':
                 return <Account changeStep={this.changeStep} data={data.data_account}/>;
             case 'greeting step':
@@ -31,7 +33,7 @@ export default class Design extends React.Component {
         }
     }
 
-    changeStep(back) {
+    changeStep(back,value) {
         const backStep = back || false;
         const { activeStep } = this.state;
 
@@ -41,6 +43,7 @@ export default class Design extends React.Component {
                 this.setState({ activeStep: this.steps[backStep ? key + 1 : key-1] });
             }
         })
+        this.setState({value:value});
     }
     render() {
         return (this.renderStep())

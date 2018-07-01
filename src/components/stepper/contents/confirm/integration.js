@@ -24,17 +24,17 @@ export default class Integration extends React.Component {
                         Opsæt Dinero integrationen
                     </div>
                     <div className="left-panel-container-header-content left-panel-container-text left-panel-container-content">
-                        Du skal have en Dineo Pro account for at kunne opsætte integrationen.
-                        Se nedenstående video guide, ring til vores hotline <u className="panel-bl-content">på 71 74 93 62 eller få os til at opsætte
-                        integrationen </u>
+                        Du skal have en Dineo Pro account for at kunne opsætte integrationen. <br/>
+                        Se nedenstående video guide, ring til vores hotline <a href='#'className="panel-bl-content">på 71 74 93 62 eller få os til at opsætte
+                        integrationen </a>
                     </div>
                     <div className="left-panel-container-body">
                         <div>
                             <div className="container-inp">
-                                <Input title={'Din dinero API nøgle'} errorMes={'API er forkert'} error={(el) => { return Validation.validationEmail(el) }} onChange={(name, value) => { this.selectData(name, value) }} />
+                                <Input title={'Din dinero API nøgle'} placeholder={'Skriv din API nøgle '} errorMes={'API er forkert'} error={(el) => { return Validation.validationEmail(el) }} onChange={(name, value) => { this.selectData(name, value) }} />
                             </div>
                             <div className="container-inp">
-                                <Input title={'Dit Dinero firma ID'} errorMes={'ID er forkert'} error={(el) => { return Validation.validationEmail(el) }} onChange={(name, value) => { this.selectData(name, value) }} />
+                                <Input title={'Dit Dinero firma ID'} placeholder={'Skriv dit firma ID'}  errorMes={'ID er forkert'} error={(el) => { return Validation.validationEmail(el) }} onChange={(name, value) => { this.selectData(name, value) }} />
                             </div>
                         </div>
                         <div className="left-panel-container-body-content">

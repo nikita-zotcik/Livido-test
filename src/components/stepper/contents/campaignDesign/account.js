@@ -67,16 +67,16 @@ export default class Account extends React.Component {
                 </div>
 
                 <div className="container-inp">
-                    <Input title={'FORNAVN'} errorMes={'navnet er forkert'} error={(el) => { return Validation.validationName(el) }} onChange={(name, value) => { this.selectData(name, value) }} />
-                    <Input title={'EFTERNAVN'} errorMes={'navnet er forkert'} error={(el) => { return Validation.validationName(el) }} onChange={(name, value) => { this.selectData(name, value) }} />
+                    <Input title={'FORNAVN'} placeholder={'Skriv dit fornavn'} errorMes={'navnet er forkert'} error={(el) => { return Validation.validationName(el) }} onChange={(name, value) => { this.selectData(name, value) }} />
+                    <Input title={'EFTERNAVN'} placeholder={'Skriv dit efternavn'} errorMes={'navnet er forkert'} error={(el) => { return Validation.validationName(el) }} onChange={(name, value) => { this.selectData(name, value) }} />
                 </div>
                 <div className="container-inp">
-                    <Input title={'Arbejdsmail'} type={'email'} errorMes={'e-mail er forkert'} error={(el) => { return Validation.validationEmail(el) }} onChange={(name, value) => { this.selectData(name, value) }} />
-                    <Input title={'Mobilnummer på kontaktperson'} errorMes={'nummeret er forkert'} error={(el) => { return Validation.validationPass(el) }} onChange={(name, value) => { this.selectData(name, value) }} />
+                    <Input title={'Arbejdsmail'} placeholder={'E-mail (arbejdsmail) '} type={'email'} errorMes={'e-mail er forkert'} error={(el) => { return Validation.validationEmail(el) }} onChange={(name, value) => { this.selectData(name, value) }} />
+                    <Input title={'Mobilnummer på kontaktperson'} placeholder={'Mobilnummer (arbejde)'} errorMes={'nummeret er forkert'} error={(el) => { return Validation.validationName(el) }} onChange={(name, value) => { this.selectData(name, value) }} />
                 </div>
                 <div className="container-inp">
-                    <Input title={'VÆLG PASSWORD (min 8 karakterer)'} type={'password'} errorMes={'adgangskode er forkert'} error={(el) => { return Validation.validationPass(el) }} onChange={(name, value) => { this.selectData(name, value) }} />
-                    <Input title={'GENTAG PASSWORD'} type={'password'} errorMes={'adgangskode er forkert'} dublPass={password} error={(el,el2) => { return Validation.validationDublPass(el, el2) }} onChange={(name, value) => { this.selectData(name, value) }} />
+                    <Input title={'VÆLG PASSWORD (min 8 karakterer)'} placeholder={'Skriv et password '}  type={'password'} errorMes={'adgangskode er forkert'} error={(el) => { return Validation.validationPass(el) }} onChange={(name, value) => { this.selectData(name, value) }} />
+                    <Input title={'GENTAG PASSWORD'} type={'password'} placeholder={'Gentag password'} errorMes={'adgangskode er forkert'} dublPass={password} error={(el,el2) => { return Validation.validationDublPass(el, el2) }} onChange={(name, value) => { this.selectData(name, value) }} />
                 </div>
 
                 <div className="container-checkbox">

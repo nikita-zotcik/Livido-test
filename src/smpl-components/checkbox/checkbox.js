@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Checkbox = ({ title = 'Default',url='', onChange = () => {} }) => {
+const Checkbox = ({ title = 'Default', url = '', onChange = () => { } }) => {
     return (
         <label className="container-custom-checkbox container-checkbox-value">
-            {title} <u>{url} </u>
+            {title} <a href={'#'}>{url} </a>
             <input type="checkbox" />
             <span className="custom-checkmark " onClick={onChange}></span>
         </label>

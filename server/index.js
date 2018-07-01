@@ -1,0 +1,43 @@
+const express = require('express');
+const axios = require('axios');
+var cors = require('cors')
+
+const app = express();
+const port = 3001;
+app.use(cors())
+
+app.get('/', (request, response) => {
+    axios.get(`http://kredit.likvido.dk/api/companytypeahead?query=${request.headers.value ? request.headers.value : 'youf'}`, {headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/x-www-form-urlencoded',
+    },})
+        .then((res) => {
+            console.log('response',res.data,);
+            response.json(res.data)
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+});
+
+app.get('/company', (request, response) => {
+    axios.get(`http://api.likvido.dk/api/company?query=${request.headers.value}`, {headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/x-www-form-urlencoded',
+    },})
+        .then((res) => {
+            console.log('response',res.data,);
+            response.json(res.data)
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+});
+
+
+app.listen(port, (err) => {
+    if (err) {
+        return console.log('something bad happened', err)
+    }
+    console.log(`server is listening on ${port}`)
+})

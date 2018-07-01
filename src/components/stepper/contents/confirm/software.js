@@ -21,14 +21,6 @@ export default class Software extends React.Component {
             name: 'bily',
             img: 'http://www.dkc.dk/filarkiv/Billeder/POS_Software/Economic-Tekst.PNG',
             active: false
-        }, {
-            name: 'unicota',
-            img: 'https://iex.dk/wp-content/uploads/2016/08/uniconta_logo_transparent.png',
-            active: false
-        }, {
-            name: 'Microsoft Dynamics',
-            img: 'https://d15shllkswkct0.cloudfront.net/wp-content/blogs.dir/1/files/2011/10/Microsoft-Dynamics-Logo.png',
-            active: false
         }];
     }
 
@@ -53,10 +45,9 @@ export default class Software extends React.Component {
                                 <RadioButton status={el.name === selectProgram ? 'progress' : ''} />
                             </div>
                         })}
-                        <div className={'Andet' === selectProgram ? 'accounting-program active' : 'accounting-program'} onClick={() => this.setState({ selectProgram: 'Andet' })}>
-                            <span> Andet <br /> Hør mere om vores REST.API</span>
-                            <RadioButton status={'Andet' === selectProgram ? 'progress' : ''} />
-                        </div>
+                    </div>
+                    <div className="left-panel-container-text left-panel-container-body">
+                        Understotter vi endnu ikke dit regnskabsprogram? Skriv til os pa kontakt@likvido.dk og fa tilsendt info om vores REST.API og andre integrationsmuligheder.
                     </div>
                     <div className="container-button">
                         <Button onChange={changeStep} title={'Næste →'} styles={{ backgroundColor: btnPrimaryColor }} />

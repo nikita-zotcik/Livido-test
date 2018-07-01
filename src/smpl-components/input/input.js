@@ -13,7 +13,7 @@ export default class Input extends React.Component {
         let { errorShow } = this.state;
 
         let error = false;
-        console.log('this.props.dublPass',!!this.props.dublPass,this.props.error(el.target.value, this.props.dublPass))
+        console.log('this.props.dublPass', !!this.props.dublPass, this.props.error(el.target.value, this.props.dublPass))
         if (!!this.props.dublPass) {
             error = this.props.error(el.target.value, this.props.dublPass)
         }
@@ -36,15 +36,16 @@ export default class Input extends React.Component {
     }
 
     render() {
-        const { errorMes = '', error = () => { }, dublPass, type = '', title = '', onChange = () => { }, styles = {} } = this.props;
+        const { errorMes = '', error = () => { }, placeholder = '', defaultValue = '', dublPass, type = '', name = '', title = '', onChange = () => { }, styles = {} } = this.props;
         const { errorShow } = this.state;
+        console.log('defaultValue', defaultValue)
         return (
             <div className="input-block">
                 <div className="input-title">
                     {title}
                 </div>
                 <div>
-                    <input type={type} name={title} className={`input-value ${errorShow ? 'error' : ''}`} onChange={this.validation} />
+                    <input type={type} name={name} placeholder={placeholder} defaultValue={defaultValue} className={`input-value ${errorShow ? 'error' : ''}`} onChange={this.validation} />
                 </div>
                 <span className={`error-message ${errorShow ? 'show' : ''}`}> {errorMes}</span>
             </div>

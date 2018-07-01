@@ -8,8 +8,11 @@ export default class Payment extends React.Component {
         this.state = {
             showItem: false,
             selectSearch: '',
+            data: [],
+            loader: false
         };
         this.data = this.props.data.search;
+        this.getData = this.getData.bind(this);
     }
 
     componentWillMount() {
@@ -17,29 +20,44 @@ export default class Payment extends React.Component {
     }
 
     async getData() {
+        this.setState({loader:true });
         try {
-            const res = await axios.get('http://kredit.likvido.dk/api/companytypeahead?query=youf', {
+            const res = await axios.get('http://localhost:3001/', {
                 headers: {
                     'Access-Control-Allow-Origin': '*',
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
             });
-            console.log(res)
+            this.setState({ data: res.data, loader:false })
         } catch (e) {
             console.log('Err: ', e)
         }
     }
 
-    fetchData(value) {
-        let { search } = this.props.data;
-        if (value === '') {
-            this.data = search;
-        } else {
-            this.data = search.filter((el) => {
-                if (el.registrationName.indexOf(value) !== -1)
-                    return el
-            })
+    async fetchData(value) {
+        this.setState({loader:true });
+        try {
+            const res = await axios.get('http://localhost:3001/', {
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    value: value
+                },
+            });
+            this.setState({ data: res.data, loader:false });
+        } catch (e) {
+            console.log('Err: ', e)
         }
+
+        // let { search } = this.props.data;
+        // if (value === '') {
+        //     this.data = search;
+        // } else {
+        //     this.data = search.filter((el) => {
+        //         if (el.label.indexOf(value) !== -1)
+        //             return el
+        //     })
+        // }
     }
 
     search = (el) => {
@@ -48,7 +66,7 @@ export default class Payment extends React.Component {
     };
 
     render() {
-        const { selectSearch } = this.state;
+        const { selectSearch, data, loader } = this.state;
         const { content } = this.props.data;
         const { changeStep } = this.props;
         return (
@@ -60,7 +78,7 @@ export default class Payment extends React.Component {
                     <div className="left-panel-container-text left-panel-container-content">
                         {content.header_content}
                     </div>
-                    <Select data={this.data} searchValue={selectSearch} search={this.search} changeStep={changeStep} />
+                    <Select data={data} loader={loader} searchValue={selectSearch} search={this.search} changeStep={(back,el) =>changeStep(back,el)} />
                     <span className="panel-bl-content">Kan du ikke finde din virksomhed?
                             <u className="panel-bl-content">  Opret manuelt</u>
                     </span>
