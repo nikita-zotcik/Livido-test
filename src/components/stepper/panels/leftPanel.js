@@ -6,7 +6,7 @@ export default class LeftPanel extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            activePart: 'Opret konto'
+            activePart: 'Tilknyt regnskabssystem'
         };
         this.changePart = this.changePart.bind(this);
         this.changeStatus = this.props.changeStatus;

@@ -7,7 +7,7 @@ Validation.validationEmail = (el) => {
 };
 
 Validation.validationPass = (el) => {
-    return !!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=(.*[a-zA-Z]){4}).{8,20}$/.test(el);
+    return !!/^(?=.*\d)(?=.*[a-z])(?=(.*[a-z]){4}).{8,20}$/.test(el);
 }
 
 Validation.validationDublPass = (pass, pass2) => {
@@ -15,7 +15,14 @@ Validation.validationDublPass = (pass, pass2) => {
 }
 
 Validation.validationName = (el) => {
-    return /^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/.test(el);
+    return el.length > 0;
+}
+
+Validation.validationCVR = (el) => {
+    return /^[\S]{8,11}$/i.test(el);
+}
+Validation.validationZipcode = (el) => {
+    return /^[0-9]{4}$/.test(el);
 }
 
 export default Validation;

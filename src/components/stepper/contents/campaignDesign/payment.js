@@ -20,7 +20,7 @@ export default class Payment extends React.Component {
     }
 
     async getData() {
-        this.setState({loader:true });
+        this.setState({ loader: true });
         try {
             const res = await axios.get('http://localhost:3001/', {
                 headers: {
@@ -28,14 +28,14 @@ export default class Payment extends React.Component {
                     'Content-Type': 'application/x-www-form-urlencoded',
                 },
             });
-            this.setState({ data: res.data, loader:false })
+            this.setState({ data: res.data, loader: false })
         } catch (e) {
             console.log('Err: ', e)
         }
     }
 
     async fetchData(value) {
-        this.setState({loader:true });
+        this.setState({ loader: true });
         try {
             const res = await axios.get('http://localhost:3001/', {
                 headers: {
@@ -44,20 +44,10 @@ export default class Payment extends React.Component {
                     value: value
                 },
             });
-            this.setState({ data: res.data, loader:false });
+            this.setState({ data: res.data, loader: false });
         } catch (e) {
             console.log('Err: ', e)
         }
-
-        // let { search } = this.props.data;
-        // if (value === '') {
-        //     this.data = search;
-        // } else {
-        //     this.data = search.filter((el) => {
-        //         if (el.label.indexOf(value) !== -1)
-        //             return el
-        //     })
-        // }
     }
 
     search = (el) => {
@@ -68,7 +58,8 @@ export default class Payment extends React.Component {
     render() {
         const { selectSearch, data, loader } = this.state;
         const { content } = this.props.data;
-        const { changeStep } = this.props;
+        const { changeStep, value } = this.props;
+
         return (
             <div className="container">
                 <div className="left-panel-block">
@@ -78,9 +69,9 @@ export default class Payment extends React.Component {
                     <div className="left-panel-container-text left-panel-container-content">
                         {content.header_content}
                     </div>
-                    <Select data={data} loader={loader} searchValue={selectSearch} search={this.search} changeStep={(back,el) =>changeStep(back,el)} />
-                    <span className="panel-bl-content">Kan du ikke finde din virksomhed?
-                            <u className="panel-bl-content">  Opret manuelt</u>
+                    <Select data={data} loader={loader} selectValue={!!value ? value : selectSearch} search={this.search} changeStep={(back, el) => changeStep(back, el)} />
+                    <span className="panel-bl-content">Kan du ikke finde din virksomhed?&nbsp;
+                            <u className="panel-bl-content" onClick={() => changeStep(true,' ')}>Opret manuelt</u>
                     </span>
                 </div>
                 <div className="left-panel-block left-panel-payment-info">
@@ -98,6 +89,7 @@ export default class Payment extends React.Component {
                     <div className="left-panel-container-text">
                         Likvido fungerer kun med ovenstående regnskabsprogrammer
                             <br />
+                        <br />
                         Skriv til os på kontakt@likvido.dk hvis du har ønsker til andre integrationer.
                         </div>
                 </div>

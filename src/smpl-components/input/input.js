@@ -9,26 +9,38 @@ export default class Input extends React.Component {
         this.validation = this.validation.bind(this);
     }
 
+    updated() {
+        const { defaultValue = '', update = false } = this.props;
+        update && this.validation(defaultValue)
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const { defaultValue = '', update = false, updatedDone = () => {} } = nextProps
+        update && this.validation(defaultValue);
+        updatedDone();
+    }
+
     validation(el) {
         let { errorShow } = this.state;
-
+        const { name } = this.props;
+        const value = typeof el === 'object' ? el.target.value : el;
         let error = false;
-        console.log('this.props.dublPass', !!this.props.dublPass, this.props.error(el.target.value, this.props.dublPass))
+
         if (!!this.props.dublPass) {
-            error = this.props.error(el.target.value, this.props.dublPass)
+            error = this.props.error(value, this.props.dublPass)
         }
         else {
-            error = this.props.error(el.target.value)
+            error = this.props.error(value)
         }
 
-        if (el.target.value === '') {
+        if (value === '') {
             this.setState({ errorShow: true });
             return '';
         }
         if (error) {
-            this.props.onChange(el.target.name, el.target.value);
+            this.props.onChange(name, value);
         } else {
-            this.props.onChange(el.target.name, '');
+            this.props.onChange(name, '');
 
         }
         this.setState({ errorShow: !error });
@@ -36,9 +48,9 @@ export default class Input extends React.Component {
     }
 
     render() {
-        const { errorMes = '', error = () => { }, placeholder = '', defaultValue = '', dublPass, type = '', name = '', title = '', onChange = () => { }, styles = {} } = this.props;
+        const { errorMes = '', placeholder = '', update = false, defaultValue = '', type = '', name = '', title = '' } = this.props;
         const { errorShow } = this.state;
-        console.log('defaultValue', defaultValue)
+        console.log('defaultValue',defaultValue)
         return (
             <div className="input-block">
                 <div className="input-title">

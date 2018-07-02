@@ -14,6 +14,13 @@ export default class TopPanel extends React.Component {
         this.handleOutsideClick = this.handleOutsideClick.bind(this);
     }
 
+    componentWillMount() {
+        this.updatedSelect();
+    }
+
+    updatedSelect = () => {
+        this.setState({searchValue : this.props.selectValue})
+    }
 
     handleClick() {
         if (!this.state.showItem) {
@@ -34,7 +41,7 @@ export default class TopPanel extends React.Component {
     }
 
     render() {
-        const { data = [], changeStep = () => { }, loader = true, search = () => { }, selectValue = () => { } } = this.props;
+        const { data = [], changeStep = () => { }, loader = true, search = () => { } } = this.props;
         const { showItem, searchValue, openInput } = this.state;
         const { btnPrimaryColor } = defaultProps.btnStyles;
 

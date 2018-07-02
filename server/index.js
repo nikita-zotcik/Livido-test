@@ -12,7 +12,6 @@ app.get('/', (request, response) => {
         'Content-Type': 'application/x-www-form-urlencoded',
     },})
         .then((res) => {
-            console.log('response',res.data,);
             response.json(res.data)
         })
         .catch(function (error) {
@@ -26,11 +25,9 @@ app.get('/company', (request, response) => {
         'Content-Type': 'application/x-www-form-urlencoded',
     },})
         .then((res) => {
-            console.log('response',res.data,);
             response.json(res.data)
         })
         .catch(function (error) {
-            console.log(error);
         });
 });
 
