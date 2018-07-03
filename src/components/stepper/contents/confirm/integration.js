@@ -6,17 +6,70 @@ import Validation from '../../../validation'
 export default class Integration extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            data: []
+        };
         this.data = [{ name: 'step 1', value: 'test test 1' }, { name: 'step 2', value: 'test test 2' }, {
             name: 'step 3',
             value: 'test test 3'
         }];
     }
 
+    updatedDone() {
+        this.state.update && this.setState({ update: false })
+    }
+
+    selectData(name, value) {
+        let { data } = this.state;
+        let stop = true;
+
+        data.forEach((el, index) => {
+            if (el.name === name) {
+                data[index].value = value;
+                stop = false;
+                this.setState(data);
+                return
+            }
+        })
+        if (stop) {
+            data.push({ name: name, value: value })
+            this.setState(data);
+        }
+
+        // this.props.saveData(data);
+    }
+
+    getSaveData(name) {
+        const { entry = [] } = this.props;
+        let value = '';
+        entry.forEach((el, index) => {
+            if (el.name === name) {
+                value = entry[index].value;
+            }
+        })
+        return value;
+    }
+
+    checkData() {
+        const { data } = this.state;
+        let succses = true;
+        this.setState({ update: true })
+        if (data.length < 0) {
+            return false;
+        }
+        data.forEach((el) => {
+            if (el.value.length === 0)
+                succses = false
+        })
+        return succses;
+    }
+
     render() {
         const { btnPrimaryColor } = defaultProps.btnStyles;
-        const { changeStep,program } = this.props;
-        console.log('this.props.progra',this.props)
+        const { changeStep, program } = this.props;
+        const { update } = this.state;
+
+        console.log('this.props.progra', this.props)
         return (
             <div className="container">
                 <div className="left-panel-block">
@@ -30,13 +83,30 @@ export default class Integration extends React.Component {
                     </div>
                     <div className="left-panel-container-body">
                         <div>
-                            {this.props.program === 'dinero' &&
+                            {program === 'dinero' &&
                                 <div className="container-inp">
-                                    <Input title={'Din dinero API nøgle'} placeholder={'Skriv din API nøgle '} errorMes={'API er forkert'} error={(el) => { return Validation.validationEmail(el) }} onChange={(name, value) => { this.selectData(name, value) }} />
+                                    <Input title={'Din dinero API nøgle'}
+                                        name='API'
+                                        updatedDone={this.updatedDone()}
+                                        update={update}
+                                        defaultValue={this.getSaveData('name')}
+                                        placeholder={'Skriv din API nøgle '}
+                                        errorMes={'API er forkert'}
+                                        error={(el) => { return Validation.validationName(el) }}
+                                        onChange={(name, value) => { this.selectData(name, value) }} />
                                 </div>
                             }
                             <div className="container-inp">
-                                <Input title={'Dit Dinero firma ID'} placeholder={'Skriv dit firma ID'} errorMes={'ID er forkert'} error={(el) => { return Validation.validationEmail(el) }} onChange={(name, value) => { this.selectData(name, value) }} />
+                                <Input title={'Dit Dinero firma ID'}
+                                    name='firmaID'
+                                    updatedDone={this.updatedDone()}
+                                    update={update}
+                                    defaultValue={this.getSaveData('name')}
+                                    placeholder={'Skriv dit firma ID'}
+                                    errorMes={'ID er forkert'}
+                                    error={(el) => { return Validation.validationName(el) }}
+                                    onChange={(name, value) => { this.selectData(name, value) }} />
+
                             </div>
                         </div>
                         <div className="left-panel-container-body-content">

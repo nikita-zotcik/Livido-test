@@ -13,7 +13,7 @@ export default class Greeting extends React.Component {
                 <div className="left-panel-container-header">
                     {content.container_header}
                 </div>
-                <div className="left-panel-container-text left-panel-container-content">
+                <div className="left-panel-container-text left-panel-container-content text-align-senter">
                     {content.header_content}
                 </div>
                 <img className="Fill-1" src={content.img} />

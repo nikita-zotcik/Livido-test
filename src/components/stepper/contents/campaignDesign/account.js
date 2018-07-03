@@ -111,7 +111,6 @@ export default class Account extends React.Component {
                         update={update}
                         defaultValue={this.getSaveData('email')}
                         placeholder={'E-mail (arbejdsmail) '}
-                        type={'email'}
                         errorMes={'e-mail er forkert'}
                         error={(el) => { return Validation.validationEmail(el) }}
                         onChange={(name, value) => { this.selectData(name, value) }} />

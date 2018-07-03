@@ -14,6 +14,7 @@ body {
   body .compan-block {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     padding: 20px; }
     body .compan-block .compan-logo {
       color: #353745;
@@ -21,6 +22,10 @@ body {
       font-weight: bold; }
     body .compan-block .login .login-url {
       color: #ff6b36; }
+  body .Fill-1 {
+    height: 325px; }
+  body .text-align-senter {
+    text-align: center; }
   body .show {
     display: block !important; }
   body .main {
@@ -37,6 +42,7 @@ body {
     body .main .menu, body .main .container-main {
       max-width: 1200px; }
     body .main .container-main {
+      flex-wrap: wrap;
       display: flex;
       justify-content: center; }
       body .main .container-main .containers {
@@ -97,7 +103,8 @@ body {
       letter-spacing: normal;
       color: #6b6f81; }
     body .main .left-panel {
-      flex: 5 0 10rem; }
+      flex: 5 0 10rem;
+      padding-bottom: 30px; }
       body .main .left-panel .left-panel-block {
         padding: 70px 60px 20px 70px;
         position: relative;
@@ -117,7 +124,8 @@ body {
         body .main .left-panel .left-panel-block .left-panel-container-body {
           display: flex;
           justify-content: start;
-          padding-bottom: 50px; }
+          padding-bottom: 50px;
+          flex-wrap: wrap; }
           body .main .left-panel .left-panel-block .left-panel-container-body .left-panel-container-body-content {
             display: flex;
             flex-direction: column;
@@ -142,7 +150,9 @@ body {
         body .main .left-panel .left-panel-block .container-accounting-program {
           display: flex;
           flex-wrap: wrap;
-          padding-top: 20px; }
+          padding-top: 20px;
+          align-items: center;
+          justify-content: center; }
           body .main .left-panel .left-panel-block .container-accounting-program .accounting-program {
             display: flex;
             justify-content: space-around;
@@ -162,10 +172,10 @@ body {
       body .main .left-panel .greeting {
         align-items: center; }
       body .main .left-panel .left-panel-container-body {
-        padding: 30px 0 60px 0px !important; }
+        padding: 30px 0 60px 0px; }
       body .main .left-panel .left-panel-payment-info {
         border-top: 1px solid #e4e5ec;
-        padding: 20px 0px 0px 70px !important; }
+        padding: 20px 0px 0px 70px; }
         body .main .left-panel .left-panel-payment-info .left-panel-container-logo-container {
           display: flex;
           justify-content: space-between;
@@ -195,7 +205,7 @@ body {
       flex-direction: column;
       flex: 1 0 10rem;
       align-items: center;
-      padding: 10px 15px;
+      padding: 0px 15px;
       flex-grow: 1;
       justify-content: space-around; }
       body .main .right-panel .container-number {
@@ -235,6 +245,68 @@ body {
       border: solid 1px #464855;
       margin-top: 50px;
       margin-bottom: 20px; }
+
+@media screen and (max-width: 1035px) {
+  .menu {
+    display: none !important; }
+  .left-panel {
+    max-height: 100% !important;
+    height: 100%; }
+  .left-panel-block {
+    max-height: 100% !important; }
+  .container-inp {
+    flex-wrap: wrap; }
+  .left-panel-container-content {
+    margin-bottom: 30px !important; }
+  #sidebar .widget {
+    padding: 8% 7%;
+    margin-bottom: 10px; } }
+
+@media screen and (max-width: 685px) {
+  .left-panel {
+    margin: 0 10px;
+    padding-bottom: 10px; }
+  .right-panel {
+    margin: 10px; } }
+
+@media screen and (max-width: 490px) {
+  .main {
+    margin-top: 30px !important; }
+  .left-panel-container-body {
+    padding: 10px 0 60px 0px !important; }
+  .left-panel-block {
+    padding: 70px 30px 20px 30px !important; }
+  .left-panel-payment-info {
+    padding: 20px 0px 0px 30px !important; }
+  .left-panel-container-logo-container {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100% !important; }
+  .search-container .button {
+    width: 100px !important; }
+  .search-container .search-value {
+    width: 50px !important; }
+  .container-inp {
+    margin: 0px !important; } }
+
+@media screen and (max-width: 415px) {
+  .left-panel-block {
+    padding: 70px 20px 0px 20px !important;
+    flex-wrap: wrap;
+    align-items: center; }
+  .left-panel-container-body-content {
+    padding-left: 0px !important; }
+  .right-panel {
+    padding: 0 10px; } }
+
+@media screen and (max-width: 380px) {
+  .left-panel-block {
+    padding: 40px 20px 0px 20px !important; }
+  .container-button .button {
+    width: 110px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; } }
 
 /* Simple components styles - Structure and layout files.
 ========================================================================== */
@@ -291,7 +363,9 @@ body {
       width: 15px;
       margin-left: 15px; }
     .main .search-container .search-value {
-      width: 100%;
+      width: 80%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
       border: none;
       height: 24px;
       font-size: 16px;
@@ -321,10 +395,14 @@ body {
         padding: 0 15px;
         cursor: pointer; }
         .main .search-container .search-container-block .search-container-block-item .search-container-block-label-main {
-          color: #c0c4d1; }
+          color: #c0c4d1;
+          width: 38%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; }
         .main .search-container .search-container-block .search-container-block-item .search-container-block-label {
           color: #464855;
-          width: 280px;
+          width: 38%;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -335,7 +413,6 @@ body {
         .main .search-container .search-container-block .search-container-block-item .search-container-block-cvr {
           color: #898ea2;
           max-width: 140px;
-          margin-left: -120px;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -348,7 +425,8 @@ body {
     margin-top: 15px;
     margin-bottom: 20px; }
     .main .container-inp .input-block {
-      width: 100%; }
+      width: 100%;
+      padding-bottom: 30px; }
       .main .container-inp .input-block div {
         margin-right: 30px; }
         .main .container-inp .input-block div .input-value {
@@ -442,7 +520,7 @@ body {
     align-items: center; }
   .main .error-message {
     display: none;
-    position: fixed;
+    position: absolute;
     padding-top: 5px;
     color: red; }
   .main .error {

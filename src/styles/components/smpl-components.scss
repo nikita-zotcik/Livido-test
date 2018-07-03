@@ -67,7 +67,9 @@
     }
 
     .search-value {
-      width: 100%;
+      width: 80%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
       border: none;
       height: 24px;
       font-size: 16px;
@@ -102,11 +104,16 @@
 
         .search-container-block-label-main {
           color: #c0c4d1;
+          width: 38%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         .search-container-block-label {
           color: #464855;
-          width: 280px;
+          // max-width: 280px;
+          width: 38%;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -121,7 +128,6 @@
         .search-container-block-cvr {
           color: #898ea2;
           max-width: 140px;
-          margin-left: -120px;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -143,7 +149,7 @@
     
     .input-block {
         width: 100%;
-
+     padding-bottom: 30px;
         div {
             margin-right: 30px;
 
@@ -267,7 +273,7 @@
 
   .error-message {  
     display: none;
-    position: fixed;
+   position: absolute;
     padding-top: 5px;
     color: red;
   }

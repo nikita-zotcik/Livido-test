@@ -51,7 +51,9 @@
       width: 15px;
       margin-left: 15px; }
     .main .search-container .search-value {
-      width: 100%;
+      width: 80%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
       border: none;
       height: 24px;
       font-size: 16px;
@@ -81,10 +83,14 @@
         padding: 0 15px;
         cursor: pointer; }
         .main .search-container .search-container-block .search-container-block-item .search-container-block-label-main {
-          color: #c0c4d1; }
+          color: #c0c4d1;
+          width: 38%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; }
         .main .search-container .search-container-block .search-container-block-item .search-container-block-label {
           color: #464855;
-          width: 280px;
+          width: 38%;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -95,7 +101,6 @@
         .main .search-container .search-container-block .search-container-block-item .search-container-block-cvr {
           color: #898ea2;
           max-width: 140px;
-          margin-left: -120px;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -108,7 +113,8 @@
     margin-top: 15px;
     margin-bottom: 20px; }
     .main .container-inp .input-block {
-      width: 100%; }
+      width: 100%;
+      padding-bottom: 30px; }
       .main .container-inp .input-block div {
         margin-right: 30px; }
         .main .container-inp .input-block div .input-value {
@@ -202,7 +208,7 @@
     align-items: center; }
   .main .error-message {
     display: none;
-    position: fixed;
+    position: absolute;
     padding-top: 5px;
     color: red; }
   .main .error {
