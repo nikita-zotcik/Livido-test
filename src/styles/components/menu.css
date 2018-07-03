@@ -28,7 +28,7 @@
         width: 0;
         height: 0;
         border-style: solid;
-        z-index: 100000; }
+        z-index: 10; }
       .menu .wrapper .step:after {
         top: 0;
         border-color: transparent transparent transparent #ffffff;
@@ -40,5 +40,6 @@
     .menu .wrapper .name p {
       color: #2d2d50;
       text-align: center;
-      padding-left: 65px;
-      font-size: 12px; }
+      padding-left: 25px;
+      font-size: 12px;
+      white-space: nowrap; }

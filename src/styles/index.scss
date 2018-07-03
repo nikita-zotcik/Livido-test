@@ -17,6 +17,7 @@ body {
   .compan-block {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     padding: 20px;
 
     .compan-logo {
@@ -30,6 +31,14 @@ body {
         color: #ff6b36
       }
     }
+  }
+
+  .Fill-1 {
+    height: 325px;
+  }
+
+  .text-align-senter {
+    text-align: center;
   }
 
   .show {
@@ -47,6 +56,7 @@ body {
     }
 
     .container-main {
+      flex-wrap: wrap;
       display: flex;
       justify-content: center;
       .containers {
@@ -68,8 +78,7 @@ body {
       width: 118px;
       height: 118px;
       border-radius: 100px;
-      margin-top: 60px;
-      margin-bottom: 10px;
+      margin-top: 50px;
     }
 
     .rocket-icon {
@@ -90,6 +99,121 @@ body {
       margin-bottom: 20px;
     }
 
+  }
+
+}
+
+@media screen and (max-width: 1035px) {
+  .menu {
+     display: none !important;
+  }
+
+  .left-panel {
+    max-height: 100% !important;
+    height: 100%;
+  }
+  .left-panel-block {
+    //  width: 60%;
+    //  padding: 3% 4%;
+    max-height: 100% !important;
+  }
+  .container-inp {
+     flex-wrap: wrap;
+  }
+
+  .left-panel-container-content {
+    margin-bottom: 30px !important;
+  }
+
+
+  #sidebar .widget {
+     padding: 8% 7%;
+     margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 685px) {
+  .left-panel {
+    margin:0 10px;
+    padding-bottom: 10px;
+  }
+
+  .right-panel {
+    margin:10px;
+
+  }
+
+}
+
+@media screen and (max-width: 490px) {
+  .main {
+    margin-top: 30px !important;
+  }
+
+  .left-panel-container-body {
+    padding: 10px 0 60px 0px !important;
+  }
+
+  .left-panel-block {
+    padding: 70px 30px 20px 30px !important;
+  }
+
+  .left-panel-payment-info {
+    padding: 20px 0px 0px 30px !important;
+  }
+
+  .left-panel-container-logo-container {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100% !important;
+  }
+  
+  .search-container {
+
+    .button {
+      width: 100px !important;
+
+    }
+
+    .search-value{ 
+      width: 50px !important;
+    }
+  }
+  .container-inp {
+    margin: 0px !important;
+  }
+
+}
+
+@media screen and (max-width: 415px) {
+  .left-panel-block {
+    padding: 70px 20px 0px 20px !important;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .left-panel-container-body-content {
+    padding-left: 0px !important;
+  }
+
+  .right-panel {
+    padding: 0 10px;
+  }
+
+}
+
+@media screen and (max-width: 380px) {
+  .left-panel-block {
+    padding: 40px 20px 0px 20px !important;
+  }
+
+  .container-button {
+    .button {
+      width: 110px !important;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 
 }

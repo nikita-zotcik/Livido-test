@@ -11,23 +11,16 @@ export default class Software extends React.Component {
         this.data = {};
         this.accountingProgram = [{
             name: 'e-conomic',
-            img: 'https://assets.pcmag.com/media/images/471204-billy-logo.jpg?width=810&height=456',
+            img: 'http://www.dkc.dk/filarkiv/Billeder/POS_Software/Economic-Tekst.PNG',
             active: false
         }, {
             name: 'dinero',
             img: 'https://visibilis.dk/wp-content/uploads/2015/12/dinero-logo-300x113.jpg',
             active: false
         }, {
-            name: 'bily',
-            img: 'http://www.dkc.dk/filarkiv/Billeder/POS_Software/Economic-Tekst.PNG',
-            active: false
-        }, {
-            name: 'unicota',
-            img: 'https://iex.dk/wp-content/uploads/2016/08/uniconta_logo_transparent.png',
-            active: false
-        }, {
-            name: 'Microsoft Dynamics',
-            img: 'https://d15shllkswkct0.cloudfront.net/wp-content/blogs.dir/1/files/2011/10/Microsoft-Dynamics-Logo.png',
+
+            name: 'billy',
+            img: 'https://assets.pcmag.com/media/images/471204-billy-logo.jpg?width=810&height=456',
             active: false
         }];
     }
@@ -35,7 +28,7 @@ export default class Software extends React.Component {
     render() {
         const { selectProgram } = this.state;
         const { btnPrimaryColor } = defaultProps.btnStyles;
-        const { changeStep } = this.props;
+        const { changeStep, saveProgram } = this.props;
 
         return (
             <div className="container">
@@ -48,18 +41,19 @@ export default class Software extends React.Component {
                     </div>
                     <div className="container-accounting-program">
                         {this.accountingProgram.map((el, index) => {
-                            return <div key={index} className={el.name === selectProgram ? 'accounting-program active' : 'accounting-program'} onClick={() => this.setState({ selectProgram: el.name })}>
+                            return <div key={index}
+                                className={el.name === selectProgram ? 'accounting-program active' : 'accounting-program'}
+                                onClick={() => { this.props.saveProgram(el.name); this.setState({ selectProgram: el.name }) }}>
                                 <img src={el.img} />
                                 <RadioButton status={el.name === selectProgram ? 'progress' : ''} />
                             </div>
                         })}
-                        <div className={'Andet' === selectProgram ? 'accounting-program active' : 'accounting-program'} onClick={() => this.setState({ selectProgram: 'Andet' })}>
-                            <span> Andet <br /> Hør mere om vores REST.API</span>
-                            <RadioButton status={'Andet' === selectProgram ? 'progress' : ''} />
-                        </div>
+                    </div>
+                    <div className="left-panel-container-text left-panel-container-body">
+                        Understotter vi endnu ikke dit regnskabsprogram? Skriv til os pa kontakt@likvido.dk og fa tilsendt info om vores REST.API og andre integrationsmuligheder.
                     </div>
                     <div className="container-button">
-                        <Button onChange={changeStep} title={'Næste →'} styles={{ backgroundColor: btnPrimaryColor }} />
+                        <Button onChange={() => selectProgram !== '' ? changeStep(true) : ''} title={'Næste →'} styles={{ backgroundColor: btnPrimaryColor }} />
                         {/* <Button onChange={() => changeStep(false)} title={'Forrige'} className={'button button-back'} /> */}
                     </div>
                 </div>

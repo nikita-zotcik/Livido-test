@@ -7,20 +7,25 @@ export default class Design extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeStep: 'software step'
+            activeStep: 'software step',
+            program: '',
+            entry: {}
         };
         this.steps = ['software step', 'details step', 'account step', 'greeting step'];
         this.changeStatus = this.props.changeStatus;
         this.changeStep = this.changeStep.bind(this);
+        this.saveProgram =this.saveProgram.bind(this);
+        this.saveData = this.saveData.bind(this);
     }
 
     renderStep() {
-        const { activeStep } = this.state;
+        const { activeStep,program,entry } = this.state;
+        console.log('prorgram',program)
         switch (activeStep) {
             case 'software step':
-                return <Software changeStep={this.changeStep} data={data.data_software} />
+                return <Software changeStep={this.changeStep} data={data.data_software} saveProgram={this.saveProgram}/>
             case 'details step':
-                return <Integration changeStep={this.changeStep} data={data.data_integration} />
+                return <Integration changeStep={this.changeStep} data={data.data_integration} entry={entry[activeStep]} program={program}/>
             case 'account step':
             // return <Account changeStep={this.changeStep} />
             case 'greeting step':
@@ -38,6 +43,18 @@ export default class Design extends React.Component {
             }
         })
     }
+
+    saveProgram(name) {
+        console.log('name',name)
+        this.setState({ program: name })
+    }
+
+    saveData(saveData) {
+        let { entry = {}, activeStep } = this.state;
+        entry[activeStep] = saveData;
+        this.setState(entry);
+    }
+
     render() {
         return (this.renderStep())
     }

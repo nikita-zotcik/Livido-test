@@ -1,31 +1,150 @@
-import React from 'react'
-import { Button, Input } from '../../../../smpl-components/index'
-import defaultProps from '../../../../default'
+import React from 'react';
+import { Button, Input } from '../../../../smpl-components/index';
+import defaultProps from '../../../../default';
+import Validation from '../../../validation';
+import axios from 'axios';
 
 export default class Details extends React.Component {
     constructor(props) {
         super(props)
-        this.data = {};
+        this.state = {
+            data: {},
+            loader: false
+        }
+        this.selectData = this.selectData.bind(this);
+        this.checkData = this.checkData.bind(this);
+        this.getData = this.getData.bind(this);
+    }
+
+    componentWillMount() {
+        this.getData();
+    }
+
+    updatedDone() {
+        this.state.update && this.setState({ update: false })
+    }
+
+    selectData(name, value) {
+        let { data } = this.state;
+
+        data[name] = value;
+        this.setState(data);
+
+        this.props.saveData(data);
+    }
+
+    checkData() {
+        const { data } = this.state;
+        let succses = true;
+
+        this.setState({ update: true });
+        if (data.length < 4) {
+            return false;
+        }
+        for (var el in data) {
+            if (data[el].length === 0)
+                succses = false
+        }
+
+        return succses;
+    }
+
+    async getData() {
+        if (!!!this.props.value)
+            return;
+        this.setState({ loader: true });
+        try {
+            const res = await axios.get('http://localhost:3001/company', {
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    value: this.props.value
+                },
+            });
+            this.setState({ data: res.data[0] || {}, loader: false })
+        } catch (e) {
+            console.log('Err: ', e)
+        }
+    }
+
+    getSaveData(name) {
+        const { entry = [] } = this.props;
+        let value = '';
+        for (var el in entry) {
+            if (el === name) {
+                value = entry[el]
+            }
+        }
+        return value;
     }
 
     render() {
         const { btnPrimaryColor } = defaultProps.btnStyles;
-        const { changeStep } = this.props;
+        const { changeStep, entry } = this.props;
         const { content } = this.props.data;
+        const { data = {}, loader, update } = this.state;
 
         return (
             <div className="left-panel-block">
+                {loader && <div className={'loader-container'}><div className='loader'> Loading...</div></div>}
                 <div className="left-panel-container-header">
                     {content.container_header}
                 </div>
                 <div className="left-panel-container-text left-panel-container-content">
                     {content.header_content}
                 </div>
-                <Input inputs={['FIRMANAVN', 'CVR NUMMER']} />
-                <Input inputs={['ADRESSE']} />
-                <Input inputs={['POSTNUMMER', 'BY']} />
+                <div className="container-inp">
+                    <Input title={'Firmanavn'}
+                        updatedDone={this.updatedDone()}
+                        update={update}
+                        error={(el) => { return Validation.validationName(el) }}
+                        name="name" defaultValue={data.name || this.getSaveData('name')}
+                        errorMes={'navnet er forkert'}
+                        onChange={(name, value) => { this.selectData(name, value) }} />
+
+                    <Input title={'CVR NUMMER'}
+                        updatedDone={this.updatedDone()}
+                        update={update}
+                        error={(el) => { return Validation.validationCVR(el) }}
+                        name="companyRegistrationId"
+                        defaultValue={data.companyRegistrationId || this.getSaveData('companyRegistrationId')}
+                        errorMes={'navnet er forkert'}
+                        onChange={(name, value) => { this.selectData(name, value) }} />
+                </div>
+                <div className="container-inp">
+                    <Input title={'ADRESSE'}
+                        updatedDone={this.updatedDone()}
+                        update={update}
+                        error={(el) => { return Validation.validationName(el) }}
+                        name="address"
+                        defaultValue={data.address || this.getSaveData('address')}
+                        type={'email'}
+                        errorMes={'adresse er forkert'}
+                        onChange={(name, value) => { this.selectData(name, value) }} />
+                </div>
+                <div className="container-inp">
+                    <Input title={'POSTNUMMER'}
+                        updatedDone={this.updatedDone()}
+                        update={update}
+                        error={(el) => { return Validation.validationZipcode(el) }}
+                        name="zipcode"
+                        defaultValue={data.zipcode || this.getSaveData('zipcode')}
+                        type={''}
+                        errorMes={'adgangskode er forkert'}
+                        onChange={(name, value) => { this.selectData(name, value) }} />
+
+                    <Input title={'BY'}
+                        type={''}
+                        updatedDone={this.updatedDone()}
+                        update={update}
+                        error={(el) => { return Validation.validationName(el) }}
+                        name="city"
+                         defaultValue={data.city || this.getSaveData('city')}
+                        errorMes={'adgangskode er forkert'}
+                        onChange={(name, value) => { this.selectData(name, value) }} />
+                </div>
                 <div className="container-button">
-                    <Button onChange={changeStep} title={'Næste →'} styles={{ backgroundColor: btnPrimaryColor }} />
+                    <Button onChange={() => this.checkData() ? changeStep(true) : ''} title={'Næste →'} styles={{ backgroundColor: btnPrimaryColor }} />
                     <Button onChange={() => changeStep(false)} title={'Forrige'} className={'button button-back'} />
                 </div>
             </div>

@@ -30,7 +30,7 @@
         width: 0;
         height: 0;
         border-style: solid;
-        z-index: 100000;
+        z-index: 10;
       }
       &:after {
         top: 0;
@@ -48,8 +48,9 @@
       p {
         color: #2d2d50;
         text-align: center;
-        padding-left: 65px;
+        padding-left: 25px;
         font-size: 12px;
+        white-space: nowrap;
       }
     }
 

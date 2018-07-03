@@ -4,16 +4,20 @@
   flex-direction: column;
   flex: 1 0 10rem;
   align-items: center;
-  padding: 10px 15px;
+  padding: 0px 15px;
   flex-grow: 1;
   justify-content: space-around; }
   .right-panel .container-number {
-    padding-top: 25px;
     display: flex;
     flex-direction: column; }
+    .right-panel .container-number .panel-bl-content {
+      padding-top: 5px;
+      color: #666ee8;
+      font-weight: 500;
+      font-size: 14px; }
   .right-panel .right-panel-user-info {
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 400;
     text-align: center;
     color: #6b6f81;
     padding-bottom: 5px; }
@@ -21,4 +25,6 @@
     font-size: 21px;
     text-align: center;
     color: #464855;
-    padding-bottom: 25px; }
+    font-weight: 500; }
+  .right-panel .right-panel-button {
+    color: #666ee8; }
