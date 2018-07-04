@@ -1,4 +1,8 @@
+@font-face {
+  font-family: Montserrat; 
+  src: url(./font/Montserrat-Regular.ttf); 
 
+ }
 %bg-image {
   width: 100%;
   background-position: center center;
@@ -56,9 +60,13 @@ body {
     }
 
     .container-main {
+      width: 100%;
+      height: 100%;
+      max-height: 680px;
       flex-wrap: wrap;
       display: flex;
       justify-content: center;
+      
       .containers {
         background-color: #ffffff;
         box-shadow: 0 10px 14px 0 rgba(69, 73, 91, 0.08);

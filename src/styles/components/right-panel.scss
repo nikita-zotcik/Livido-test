@@ -13,6 +13,10 @@
     display: flex;
     flex-direction: column;
 
+    img {
+      margin-right: 10px;
+    }
+
     .panel-bl-content {
       padding-top: 5px;
       color: #666ee8;

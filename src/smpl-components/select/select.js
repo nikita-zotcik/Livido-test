@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '../index';
 import defaultProps from '../../default'
+import Home from '../../styles/img/home.png';
 
 export default class TopPanel extends React.Component {
     constructor(props) {
@@ -48,7 +49,7 @@ export default class TopPanel extends React.Component {
         return (
             <div>
                 <div className="search-container">
-                    <img className="icon-home" src={'http://weclipart.com/gimg/DA196246B2601210/ncBB5rpei.png'} />
+                    <img className="icon-home" src={Home} />
                     <span className="divider" />
                     <input className='search-value' placeholder={'Skriv navnet på din virksomhed eller dit CVR nummer'}
                         value={searchValue}

@@ -10,6 +10,8 @@
   .right-panel .container-number {
     display: flex;
     flex-direction: column; }
+    .right-panel .container-number img {
+      margin-right: 10px; }
     .right-panel .container-number .panel-bl-content {
       padding-top: 5px;
       color: #666ee8;

@@ -123,11 +123,12 @@
     .left-panel-container-logo-container {
       display: flex;
       justify-content: space-between;
-      width: 55%;
+      align-items: center;
+      width: 40%;
       padding-bottom: 30px;
 
       img {
-        height: 50px;
+        height: 30px;
       }
     }
   }

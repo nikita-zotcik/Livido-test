@@ -18,7 +18,7 @@ export default class LeftPanel extends React.Component {
             case 'Opret konto':
                 return <Design changePart={this.changePart} changeStatus={this.changeStatus}/>
             case 'Tilknyt regnskabssystem':
-                return <Confirm changePart={this.changePart} changeStatus={this.changeStatus}/>
+                return <Confirm changePart={this.changePart} changeLoading={this.props.changeLoading} changeStatus={this.changeStatus}/>
             case 'account step':
             // return <Account changePart={this.changePart} />
             case 'greeting step':

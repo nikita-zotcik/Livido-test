@@ -1,6 +1,7 @@
 import React from 'react'
 import data from '../../../data.json'
 import {Button} from '../../../smpl-components/index'
+import Phone from '../../../styles/img/phone-call.png';
 
 export default class RightPanel extends React.Component {
     render() {
@@ -17,6 +18,7 @@ export default class RightPanel extends React.Component {
                 <Button title={'Book et online møde'} className={'right-panel-button'}/>
                 <div className="container-number">
                     <span className="panel-bl-content">
+                    <img src={Phone}/>
                         {userNumber}
                     </span>
                     <span className="panel-bl-content">

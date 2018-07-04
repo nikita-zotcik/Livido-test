@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import { Button, Select } from '../../../../smpl-components/index';
+import { Button, Select, ModalVideo } from '../../../../smpl-components/index';
+import Billy from '../../../../styles/img/billy-logo-final_blue.png';
+import Dinero from '../../../../styles/img/dinero-logo.png';
+import Economic from '../../../../styles/img/e-conomic-logo-til-web.png';
 
 export default class Payment extends React.Component {
     constructor(props) {
@@ -60,40 +63,40 @@ export default class Payment extends React.Component {
         const { content } = this.props.data;
         const { changeStep, value } = this.props;
 
-        return (
-            <div className="container">
-                <div className="left-panel-block">
-                    <div className="left-panel-container-header">
-                        {content.container_header}
-                    </div>
-                    <div className="left-panel-container-text left-panel-container-content">
-                        {content.header_content}
-                    </div>
-                    <Select data={data} loader={loader} selectValue={!!value ? value : selectSearch} search={this.search} changeStep={(back, el) => changeStep(back, el)} />
-                    <span className="panel-bl-content">Kan du ikke finde din virksomhed?&nbsp;
-                            <u className="panel-bl-content" onClick={() => changeStep(true,' ')}>Opret manuelt</u>
-                    </span>
+        return (['',
+        <div className="container">
+            <div className="left-panel-block">
+                <div className="left-panel-container-header">
+                    {content.container_header}
                 </div>
-                <div className="left-panel-block left-panel-payment-info">
-                    <div className="left-panel-container-logo-container">
-                        <div>
-                            <img src={'https://assets.pcmag.com/media/images/471204-billy-logo.jpg?width=810&height=456'} />
-                        </div>
-                        <div>
-                            <img src={'https://visibilis.dk/wp-content/uploads/2015/12/dinero-logo-300x113.jpg'} />
-                        </div>
-                        <div>
-                            <img src={'http://www.dkc.dk/filarkiv/Billeder/POS_Software/Economic-Tekst.PNG'} />
-                        </div>
-                    </div>
-                    <div className="left-panel-container-text">
-                        Likvido fungerer kun med ovenstående regnskabsprogrammer
-                            <br />
-                        <br />
-                        Skriv til os på kontakt@likvido.dk hvis du har ønsker til andre integrationer.
-                        </div>
+                <div className="left-panel-container-text left-panel-container-content">
+                    {content.header_content}
                 </div>
+                <Select data={data} loader={loader} selectValue={!!value ? value : selectSearch} search={this.search} changeStep={(back, el) => changeStep(back, el)} />
+                <span className="panel-bl-content">Kan du ikke finde din virksomhed?&nbsp;
+                            <u className="panel-bl-content" onClick={() => changeStep(true, ' ')}>Opret manuelt</u>
+                </span>
             </div>
+            <div className="left-panel-block left-panel-payment-info">
+                <div className="left-panel-container-logo-container">
+                    <div>
+                        <img src={Billy} />
+                    </div>
+                    <div>
+                        <img src={Economic} />
+                    </div>
+                    <div>
+                        <img src={Dinero} />
+                    </div>
+                </div>
+                <div className="left-panel-container-text">
+                    Likvido fungerer kun med ovenstående regnskabsprogrammer
+                            <br />
+                    <br />
+                    Skriv til os på kontakt@likvido.dk hvis du har ønsker til andre integrationer.
+                        </div>
+            </div>
+        </div>]
         )
     }
 }

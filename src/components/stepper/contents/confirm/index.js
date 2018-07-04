@@ -11,8 +11,9 @@ export default class Design extends React.Component {
             program: '',
             entry: {}
         };
-        this.steps = ['software step', 'details step', 'account step', 'greeting step'];
+        this.steps = ['software step', 'details step', 'loading step', 'loading step'];
         this.changeStatus = this.props.changeStatus;
+        this.changeLoading = this.props.changeLoading;
         this.changeStep = this.changeStep.bind(this);
         this.saveProgram =this.saveProgram.bind(this);
         this.saveData = this.saveData.bind(this);
@@ -26,9 +27,10 @@ export default class Design extends React.Component {
                 return <Software changeStep={this.changeStep} data={data.data_software} saveProgram={this.saveProgram}/>
             case 'details step':
                 return <Integration changeStep={this.changeStep} data={data.data_integration} entry={entry[activeStep]} program={program}/>
-            case 'account step':
-            // return <Account changeStep={this.changeStep} />
-            case 'greeting step':
+            case 'loading step':
+                this.changeLoading(true);
+                return <div/>
+            case 'loading step':
             // return <Greeting changeStep={this.changeStep} />
         }
     }

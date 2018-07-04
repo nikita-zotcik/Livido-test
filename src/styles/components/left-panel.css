@@ -84,10 +84,11 @@
     .left-panel .left-panel-payment-info .left-panel-container-logo-container {
       display: flex;
       justify-content: space-between;
-      width: 55%;
+      align-items: center;
+      width: 40%;
       padding-bottom: 30px; }
       .left-panel .left-panel-payment-info .left-panel-container-logo-container img {
-        height: 50px; }
+        height: 30px; }
   .left-panel .left-panel-container-header {
     font-size: 28px;
     font-weight: 500;
