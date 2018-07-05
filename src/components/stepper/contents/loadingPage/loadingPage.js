@@ -1,6 +1,6 @@
 import React from 'react';
 import defaultProps from '../../../../default';
-import { Line, Circle } from 'rc-progress';
+import { Circle } from 'rc-progress';
 
 export default class Integration extends React.Component {
     constructor(props) {
@@ -15,19 +15,17 @@ export default class Integration extends React.Component {
 
 
     selectData() {
-        
+
     }
 
     render() {
         const { percent } = this.state;
         setTimeout(() => {
-            percent !== 100 ? this.setState({ percent: percent + 1 }) : this.setState({ percent: 0 })
+            percent !== 100 ? this.setState({ percent: percent + 1 }) : this.props.changeLoading(false)
         }, 150);
 
-        console.log('this.props.progra', this.props)
         return (
             <div className="progress-container">
-            
                 <div className="progress-header">Godt gaet Maximilian </div>
                 <div className="progress-text"> Vent mens vi hender data ud fra dit regnskabsprogram </div>
                 <div className="progress-status-container">

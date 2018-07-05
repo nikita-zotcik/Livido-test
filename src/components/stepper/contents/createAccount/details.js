@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Input } from '../../../../smpl-components/index';
 import defaultProps from '../../../../default';
 import Validation from '../../../validation';
+import API from '../../../../APIconfig.json';
 import axios from 'axios';
 
 export default class Details extends React.Component {
@@ -52,15 +53,16 @@ export default class Details extends React.Component {
     async getData() {
         if (!!!this.props.value)
             return;
-        this.setState({ loader: true });
+        this.props.spinner(true)
         try {
-            const res = await axios.get('http://localhost:3001/company', {
+            const res = await axios.get(API.detailAPI, {
                 headers: {
                     'Access-Control-Allow-Origin': '*',
                     'Content-Type': 'application/x-www-form-urlencoded',
                     value: this.props.value
                 },
             });
+            this.props.spinner()
             this.setState({ data: res.data[0] || {}, loader: false })
         } catch (e) {
             console.log('Err: ', e)
@@ -86,7 +88,6 @@ export default class Details extends React.Component {
 
         return (
             <div className="left-panel-block">
-                {loader && <div className={'loader-container'}><div className='loader'> Loading...</div></div>}
                 <div className="left-panel-container-header">
                     {content.container_header}
                 </div>
@@ -139,7 +140,7 @@ export default class Details extends React.Component {
                         update={update}
                         error={(el) => { return Validation.validationName(el) }}
                         name="city"
-                         defaultValue={data.city || this.getSaveData('city')}
+                        defaultValue={data.city || this.getSaveData('city')}
                         errorMes={'adgangskode er forkert'}
                         onChange={(name, value) => { this.selectData(name, value) }} />
                 </div>

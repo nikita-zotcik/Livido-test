@@ -1,9 +1,10 @@
-import React from 'react';
-import axios from 'axios';
 import { Button, Select, ModalVideo } from '../../../../smpl-components/index';
+import Economic from '../../../../styles/img/e-conomic-logo-til-web.png';
 import Billy from '../../../../styles/img/billy-logo-final_blue.png';
 import Dinero from '../../../../styles/img/dinero-logo.png';
-import Economic from '../../../../styles/img/e-conomic-logo-til-web.png';
+import API from '../../../../APIconfig.json';
+import React from 'react';
+import axios from 'axios';
 
 export default class Payment extends React.Component {
     constructor(props) {
@@ -25,7 +26,7 @@ export default class Payment extends React.Component {
     async getData() {
         this.setState({ loader: true });
         try {
-            const res = await axios.get('http://localhost:3001/', {
+            const res = await axios.get(API.searchAPI, {
                 headers: {
                     'Access-Control-Allow-Origin': '*',
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -40,7 +41,7 @@ export default class Payment extends React.Component {
     async fetchData(value) {
         this.setState({ loader: true });
         try {
-            const res = await axios.get('http://localhost:3001/', {
+            const res = await axios.get(API.searchAPI, {
                 headers: {
                     'Access-Control-Allow-Origin': '*',
                     'Content-Type': 'application/x-www-form-urlencoded',

@@ -4,7 +4,6 @@ import RightPanel from './panels/rightPanel'
 import TopPanel from './panels/topPanel'
 import data from '../../data.json'
 import LoadingPage from './contents/loadingPage/loadingPage'
-import { ModalVideo } from '../../smpl-components/index'
 
 export default class step extends React.Component {
     constructor(props) {
@@ -26,6 +25,7 @@ export default class step extends React.Component {
 
         this.changeStatus = this.changeStatus.bind(this);
         this.changeLoading = this.changeLoading.bind(this);
+        this.saveActivePart = this.saveActivePart.bind(this);
     }
 
     changeStatus(name, status) {
@@ -38,13 +38,17 @@ export default class step extends React.Component {
         });
         this.setState({ parts: parts });
     }
+    
+    saveActivePart(el) {
+        this.setState({activePart: el})
+    }
 
     changeLoading(status) {
         this.setState({ loading: status })
     }
 
     render() {
-        const { parts, loading } = this.state;
+        const { parts, loading, activePart='' } = this.state;
         return ([
             <div className="compan-block">
                 <div className="compan-logo">
@@ -59,16 +63,15 @@ export default class step extends React.Component {
 
                 {loading ?
                     <div className="container-main">
-                        <LoadingPage />
+                        <LoadingPage changeLoading={this.changeLoading} />
                     </div>
                     :
                     [<TopPanel parts={parts} />,
                     <div className="container-main">
-                        <LeftPanel parts={parts} changeStatus={this.changeStatus} changeLoading={this.changeLoading}/>
+                        <LeftPanel parts={parts} activePart={activePart} saveActivePart={this.saveActivePart} changeStatus={this.changeStatus} changeLoading={this.changeLoading}/>
                         <RightPanel />
                     </div>]
                 }
-                {/* <ModalVideo/> */}
             </div>
         ]
 

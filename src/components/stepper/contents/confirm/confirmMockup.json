@@ -1,31 +1,5 @@
 {
     "data_software": {
-        "accounting_program": [
-            {
-                "name": "e-conomic",
-                "active": false
-            },
-            {
-                "name": "dinero",
-                "active": false
-            },
-            {
-                "name": "bily",
-                "active": false
-            },
-            {
-                "name": "unicota",
-                "active": false
-            },
-            {
-                "name": "Microsoft Dynamics",
-                "active": false
-            },
-            {
-                "name": "Andet",
-                "active": false
-            }
-        ],
         "content": {
             "container_header": "Hvilket regnskabsprogram bruger du Maximilian?",
             "header_content": "Sæt din inddrivelse på automatpilot ved at connecte dit regnskabsprogram. Det tager under 2 minutter at opsætte integreationen og kræver ingen teknisk kunnen."
@@ -48,7 +22,7 @@
         ],
         "content": {
             "container_header": "Opsæt Dinero integrationen",
-            "header_content": " Du skal have en Dineo Pro account for at kunne opsætte integrationen. Se nedenstående video guide, ring til vores hotline på 71 74 93 62 eller få os til at opsætte integrationen"
+            "header_content": " Du skal have en Dineo Pro account for at kunne opsætte integrationen. Se nedenstående video guide, ring til vores hotline "
         }
     }
 }

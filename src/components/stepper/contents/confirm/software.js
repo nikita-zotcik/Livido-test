@@ -1,6 +1,9 @@
+import { Button, Input, RadioButton } from '../../../../smpl-components/index';
+import Economic from '../../../../styles/img/e-conomic-logo-til-web.png';
+import Billy from '../../../../styles/img/billy-logo-final_blue.png';
+import Dinero from '../../../../styles/img/dinero-logo.png';
+import defaultProps from '../../../../default';
 import React from 'react';
-import { Button, Input, RadioButton } from '../../../../smpl-components/index'
-import defaultProps from '../../../../default'
 
 export default class Software extends React.Component {
     constructor(props) {
@@ -11,16 +14,16 @@ export default class Software extends React.Component {
         this.data = {};
         this.accountingProgram = [{
             name: 'e-conomic',
-            img: 'http://www.dkc.dk/filarkiv/Billeder/POS_Software/Economic-Tekst.PNG',
+            img: Economic,
             active: false
         }, {
             name: 'dinero',
-            img: 'https://visibilis.dk/wp-content/uploads/2015/12/dinero-logo-300x113.jpg',
+            img: Dinero,
             active: false
         }, {
 
             name: 'billy',
-            img: 'https://assets.pcmag.com/media/images/471204-billy-logo.jpg?width=810&height=456',
+            img: Billy,
             active: false
         }];
     }
@@ -28,16 +31,16 @@ export default class Software extends React.Component {
     render() {
         const { selectProgram } = this.state;
         const { btnPrimaryColor } = defaultProps.btnStyles;
-        const { changeStep, saveProgram } = this.props;
+        const { changeStep ,data } = this.props;
 
         return (
             <div className="container">
                 <div className="left-panel-block">
                     <div className="left-panel-container-header">
-                        Hvilket regnskabsprogram bruger du Maximilian?
+                       {data.content.container_header}
                     </div>
                     <div className="left-panel-container-text left-panel-container-content">
-                        Sæt din inddrivelse på automatpilot ved at connecte dit regnskabsprogram. Det tager under 2 minutter at opsætte integreationen og kræver ingen teknisk kunnen.
+                    {data.content.header_content}
                     </div>
                     <div className="container-accounting-program">
                         {this.accountingProgram.map((el, index) => {

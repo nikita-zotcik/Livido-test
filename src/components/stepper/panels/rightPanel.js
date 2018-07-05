@@ -1,6 +1,6 @@
-import React from 'react'
-import data from '../../../data.json'
-import {Button} from '../../../smpl-components/index'
+import React from 'react';
+import data from '../../../data.json';
+import {Button} from '../../../smpl-components/index';
 import Phone from '../../../styles/img/phone-call.png';
 
 export default class RightPanel extends React.Component {

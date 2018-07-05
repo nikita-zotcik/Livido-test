@@ -5,7 +5,7 @@ import Account from './account';
 import Greeting from './greeting';
 import data from './comparingMockup.json';
 
-export default class Design extends React.Component {
+export default class CreateAccount extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -24,9 +24,9 @@ export default class Design extends React.Component {
 
         switch (activeStep) {
             case 'payment step':
-                return <Payment changeStep={this.changeStep} data={data.data_payment} value={value} />
+                return <Payment changeStep={this.changeStep} spinner={this.props.spinner} data={data.data_payment} value={value} />
             case 'details step':
-                return <Details changeStep={this.changeStep} data={data.data_details} value={value} entry={entry[activeStep]} saveData={this.saveData}/>;
+                return <Details changeStep={this.changeStep} spinner={this.props.spinner} data={data.data_details} value={value} entry={entry[activeStep]} saveData={this.saveData}/>;
             case 'account step':
                 return <Account changeStep={this.changeStep} data={data.data_account} entry={entry[activeStep]} saveData={this.saveData} />;
             case 'greeting step':

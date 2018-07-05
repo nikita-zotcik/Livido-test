@@ -3,7 +3,7 @@ import Software from './software';
 import Integration from './integration'
 import data from './confirmMockup.json'
 
-export default class Design extends React.Component {
+export default class Confirm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -15,21 +15,22 @@ export default class Design extends React.Component {
         this.changeStatus = this.props.changeStatus;
         this.changeLoading = this.props.changeLoading;
         this.changeStep = this.changeStep.bind(this);
-        this.saveProgram =this.saveProgram.bind(this);
+        this.changePart = this.props.changePart;
+        this.saveProgram = this.saveProgram.bind(this);
         this.saveData = this.saveData.bind(this);
     }
 
     renderStep() {
-        const { activeStep,program,entry } = this.state;
-        console.log('prorgram',program)
+        const { activeStep, program, entry } = this.state;
         switch (activeStep) {
             case 'software step':
-                return <Software changeStep={this.changeStep} data={data.data_software} saveProgram={this.saveProgram}/>
+                return <Software changeStep={this.changeStep} data={data.data_software} saveProgram={this.saveProgram} />
             case 'details step':
-                return <Integration changeStep={this.changeStep} data={data.data_integration} entry={entry[activeStep]} program={program}/>
+                return <Integration changeLoading={this.changeLoading} changeStep={this.changePart} data={data.data_integration} entry={entry[activeStep]} program={program} />
             case 'loading step':
+                this.changePart();
                 this.changeLoading(true);
-                return <div/>
+                return <div />
             case 'loading step':
             // return <Greeting changeStep={this.changeStep} />
         }
@@ -47,7 +48,6 @@ export default class Design extends React.Component {
     }
 
     saveProgram(name) {
-        console.log('name',name)
         this.setState({ program: name })
     }
 

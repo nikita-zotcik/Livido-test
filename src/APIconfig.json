@@ -1,3 +1,4 @@
 {
-    "searchAPI": "http://kredit.likvido.dk/api/companytypeahead"
+    "searchAPI": "http://localhost:3001/",
+    "detailAPI": "http://localhost:3001/company"
 }

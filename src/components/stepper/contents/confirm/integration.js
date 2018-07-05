@@ -1,7 +1,7 @@
-import React from 'react'
-import { Button, Input } from '../../../../smpl-components/index'
-import defaultProps from '../../../../default'
-import Validation from '../../../validation'
+import { Button, Input } from '../../../../smpl-components/index';
+import defaultProps from '../../../../default';
+import Validation from '../../../validation';
+import React from 'react';
 
 export default class Integration extends React.Component {
     constructor(props) {
@@ -66,19 +66,17 @@ export default class Integration extends React.Component {
 
     render() {
         const { btnPrimaryColor } = defaultProps.btnStyles;
-        const { changeStep, program } = this.props;
+        const { changeStep, program, data,changeLoading } = this.props;
         const { update } = this.state;
 
-        console.log('this.props.progra', this.props)
         return (
             <div className="container">
                 <div className="left-panel-block">
                     <div className="left-panel-container-header">
-                        Opsæt Dinero integrationen
+                        {data.content.container_header}
                     </div>
                     <div className="left-panel-container-header-content left-panel-container-text">
-                        Du skal have en Dineo Pro account for at kunne opsætte integrationen.
-                        Se nedenstående video guide, ring til vores hotline <a href='#' className="panel-bl-content">på 71 74 93 62 eller få os til at opsætte
+                        {data.content.header_content} <a href='#' className="panel-bl-content">på 71 74 93 62 eller få os til at opsætte
                         integrationen </a>
                     </div>
                     <div className="left-panel-container-body">
@@ -120,7 +118,7 @@ export default class Integration extends React.Component {
                         </div>
                     </div>
                     <div className="container-button">
-                        <Button onChange={() =>  changeStep(true)} title={'Opsæt integration  →'} styles={{ backgroundColor: btnPrimaryColor, width: 230 }} />
+                        <Button onChange={() => {changeStep(true);changeLoading(true)}} title={'Opsæt integration  →'} styles={{ backgroundColor: btnPrimaryColor, width: 230 }} />
                         <Button onChange={() => changeStep(false)} title={'Afbryd'} className={'button button-back'} />
                     </div>
                 </div>

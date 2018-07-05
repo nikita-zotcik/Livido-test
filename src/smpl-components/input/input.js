@@ -15,7 +15,7 @@ export default class Input extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        const { defaultValue = '', update = false, updatedDone = () => {} } = nextProps
+        const { defaultValue = '', update = false, updatedDone = () => { } } = nextProps
         update && this.validation(defaultValue);
         updatedDone();
     }
@@ -50,7 +50,7 @@ export default class Input extends React.Component {
     render() {
         const { errorMes = '', placeholder = '', update = false, defaultValue = '', type = '', name = '', title = '' } = this.props;
         const { errorShow } = this.state;
-        console.log('defaultValue',defaultValue)
+
         return (
             <div className="input-block">
                 <div className="input-title">

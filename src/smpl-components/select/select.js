@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../index';
+import { Button,Spinner } from '../index';
 import defaultProps from '../../default'
 import Home from '../../styles/img/home.png';
 
@@ -57,7 +57,7 @@ export default class TopPanel extends React.Component {
                         onClick={() => this.setState({ showItem: !showItem, openInput: false })} />
                     <Button onChange={!!searchValue ? () => changeStep(true, searchValue) : () => { }} title={'Søg →'} styles={{ backgroundColor: btnPrimaryColor }} />
                     <div className={`search-container-block ${this.state.showItem ? 'show' : ''}`} >
-                        {loader && <div className={'loader-container'}><div className='loader'> Loading...</div></div>}
+                        {loader && <Spinner/>}
                         <div className="search-container-block-item">
                             <span className="search-container-block-label-main">Virksomhedsnavn</span>
                             <span className="search-container-block-cvr-main">CVR</span>
