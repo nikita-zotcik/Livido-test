@@ -1,2 +1,2 @@
 [config]
-command = npm run productionBuild
+command = npm run build
