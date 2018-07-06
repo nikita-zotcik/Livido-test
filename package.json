@@ -28,7 +28,7 @@
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "productionBuild" : "serve -s server/build",
+    "productionBuild" : "./node_modules/serve/bin/serve.js -s server/build",
     "copyBuild": "cp -r build server/ && rm -rf build"
   }
 }
