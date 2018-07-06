@@ -48,6 +48,7 @@ export default class Payment extends React.Component {
                     value: value
                 },
             });
+            
             this.setState({ data: res.data, loader: false });
         } catch (e) {
             console.log('Err: ', e)
