@@ -1,2 +1,2 @@
 [config]
-project = build
+command = node ./server/index.js
