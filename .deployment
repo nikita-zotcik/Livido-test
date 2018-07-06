@@ -1,2 +1,3 @@
 [config]
 project = nodejs-docs-hello-world-master
+command = npm start
